@@ -5,7 +5,7 @@ class Way2enjoyweb {
     private $timeout;
     private $proxyParams;
 
-    public function __construct($key = '', $secret = '', $timeout = 30, $proxyParams = array()) {
+    public function __construct($key = '', $secret = '', $timeout = 300, $proxyParams = array()) {
         $this->auth = array(
             "auth" => array(
                 "api_key" => $key,
