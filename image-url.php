@@ -11,9 +11,17 @@ require_once("Way2enjoyweb.php");
 date_default_timezone_set("Asia/Kolkata"); 
 include('/home/something/public_html/somefolder/connecti.php');
 mysqli_set_charset($con, 'utf8mb4');
-$table_to_optimize=array("rice","oils","somemore"); 
-$random_table = $table_to_optimize[array_rand($table_to_optimize, 1)];
-$re7 = mysqli_query($con,"select id,status,prod_img from $random_table where status='0' order by id desc limit 1");
+$random_table_way2enjoy = array(array('table' => 'table1', 'column'=>'image_column_for_table1','anything_else'=>'ignore_this1'),
+           array('table' => 'table2', 'column' => 'image_column_for_table2','anything_else'=>'ignore_this2'),
+          array('table' => 'table3', 'column' => 'image_column_for_table3','anything_else'=>'ignore_this3'),
+);
+
+$num_way2enjoy = array_rand($random_table_way2enjoy);
+$item_random_way2enjoy = $random_table_way2enjoy[$num_way2enjoy];
+
+
+
+$re7 = mysqli_query($con,"select id,status,$item_random_way2enjoy['column'] from $item_random_way2enjoy['table'] where status='0' order by id desc limit 1");
 $row2 = mysqli_fetch_assoc($re7);
 $status=$row2['status'];
 $iddd=$row2['id'];
